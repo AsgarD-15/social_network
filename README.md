@@ -10,7 +10,11 @@
     ```bash
     docker-compose up --build
     ```
-
+5. Use the below Url:
+   
+    ```bash
+    http://127.0.0.1:8000/
+    ```
 ## Endpoints
 
 - `POST /api/login/`: Login with email and password.
