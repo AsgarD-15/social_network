@@ -2,24 +2,13 @@
 
 ## Installation
 
-1. Clone the repository
-2. Navigate to the project directory
-3. Build and run the Docker containers:
+1. Make sure the docker is installed in local computer.
+2. Clone the repository
+3. Navigate to the project directory
+4. Build and run the Docker containers:
 
     ```bash
     docker-compose up --build
-    ```
-
-4. Run migrations:
-
-    ```bash
-    docker-compose run web python manage.py migrate
-    ```
-
-5. Create a superuser:
-
-    ```bash
-    docker-compose run web python manage.py createsuperuser
     ```
 
 ## Endpoints
@@ -31,3 +20,68 @@
 - `POST /api/friend-request/reject/<id>/`: Reject a friend request.
 - `GET /api/friends/`: List friends.
 - `GET /api/pending-requests/`: List pending friend requests.
+
+Example Testcases.
+Sign Up
+Request:
+POST /api/signup/
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "email": "testuser1@example.com",
+    "password": "password123",
+    "first_name": "Test",
+    "last_name": "User1"
+}
+
+
+Request:
+POST /api/signup/
+Content-Type: application/json
+
+{
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "password123",
+    "first_name": "Test",
+    "last_name": "User2"
+}
+
+Log In
+Request:
+POST /api/login/
+Content-Type: application/json
+
+{
+    "username": "testuser1",
+    "password": "password123"
+}
+
+
+Send Friend Request
+Request:
+POST /api/friend-request/
+Content-Type: application/json
+Authorization: Token your_api_token
+
+{
+    "receiver_id": 2
+}
+
+
+List Friends
+Request:
+GET /api/friends/
+Authorization: Token your_api_token
+
+
+Accept Friend Request
+Request:
+POST /api/friend-request/accept/1/
+Authorization: Token your_api_token
+
+List Pending Friend Requests
+Request:
+GET /api/pending-requests/
+Authorization: Token your_api_token
