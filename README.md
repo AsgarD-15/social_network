@@ -10,7 +10,7 @@
     ```bash
     docker-compose up --build
     ```
-5. Use the below Url:
+5. Use the below Url for furthur testing:
    
     ```bash
     http://127.0.0.1:8000/
